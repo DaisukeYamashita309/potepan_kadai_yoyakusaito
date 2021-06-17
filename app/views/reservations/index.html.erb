@@ -1,0 +1,60 @@
+<%= render "shared/error", obj: @reservations %>
+
+</div>
+    <div class="header-right-nav">
+        <div class="nav-item">
+          <button class="btn btn-primary my-2 mx-3" onclick="location.href='/users/sign_in'">ログイン</button>
+          <button class="btn btn-secondary" onclick="location.href='/users/sign_up'">登録する</button>
+          <!--<button class="btn btn-primary my-2 mx-3" href="/users/sign_in">ログイン</button>-->
+          <!--<button class="btn btn-secondary" href="/users/sign_up">登録する</button>-->
+        </div>
+    </div>
+  </div>
+
+<%= form_for @reservations do |f| %>
+
+<div>
+    <div class="form-area">
+        <p class="form-area-title mb-4">Potepan Shareでまだ体験したことのない旅をしよう</p>
+    </div>
+    <table>
+        <tr>
+            <th><%= f.label :area ,"エリア" %></th>
+            <td><%= f.text_field :area , :placeholder =>"東京" %></td>
+        </tr>
+    </table>
+    <div>
+        <ul>
+            <li><%= f.submit "探す"%></li>
+        </ul>
+    </div>
+<% end %>
+</div>
+
+<div class="container">
+        <div class="panel-area m-5">
+            <h1 class="section-title">おすすめのエリア</h1>
+            <div class="row">
+                <div class="panel-item col-lg-3 col-6">
+                    <span>東京</span>
+                    <a href ="https://4ef98fbe4b92431585b6390300b6a1bb.vfs.cloud9.us-east-2.amazonaws.com/rooms/show?area=%E6%9D%B1%E4%BA%AC"><%= image_tag asset_path("img_tokyo-min.jpg") ,class:"panel-image"%></a>
+                    <div class="shadow"></div>
+                </div>
+                <div class="panel-item col-lg-3 col-6">
+                    <span>大阪</span>
+                    <a href ="rooms/show?area=大阪"><%= image_tag asset_path("img_osaka-min.jpg") ,class:"panel-image"%></a>
+                    <div class="shadow"></div>
+                </div>
+                <div class="panel-item col-lg-3 col-6">
+                    <span>京都</span>
+                    <a href ="rooms/show?area=京都"><%= image_tag asset_path("img_kyoto-min.jpg") ,class:"panel-image"%></a>
+                    <div class="shadow"></div>
+                </div>
+                <div class="panel-item col-lg-3 col-6">
+                    <span>札幌</span>
+                   <a href ="rooms/show?area=京都"><%= image_tag asset_path("img_sapporo-min.jpg") ,class:"panel-image"%></a>
+                    <div class="shadow"></div>
+                </div>
+            </div>
+        </div>
+    </div>

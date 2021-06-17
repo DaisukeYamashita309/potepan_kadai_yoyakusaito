@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>PoteShare</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +14,39 @@
   </head>
 
   <body>
+    <header class="header">
+  <div class="header-inner">
+    <div class="header-left-nav">
+        <!--<a href="/">%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), "/"  %></a>-->
+        <a href="/reservations/index"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" /></a>
+        <form action="https://presite-potepancamp-rails-02.herokuapp.com/rooms/search" accept-charset="UTF-8" method="get">
+        <div class="header-sharch d-lg-inline-block d-none">
+           <input type="text" name="area" id="area" value="" class="form-control font-awesome" value="" placeholder="エリア">
+          <i class="fas fa-map-marker-alt"></i>
+          ::before
+        </div>
+        <div class="header-sharch d-lg-inline-block d-none">
+          <input type="text" name="keyword" id="keyword" value="" class="form-control font-awesome" placeholder="キーワード">
+          <i class="fas fa-search"></i>
+          ::before
+        </div>
+</form>    
+</div>
+    <div class="header-right-nav">
+        <div class="nav-item">
+          <button class="btn btn-primary my-2 mx-3" onclick="location.href='sign_in'">ログイン</button>
+          <button class="btn btn-secondary" onclick="location.href='/users/sign_up'">登録する</button>
+          <!--<button class="btn btn-primary my-2 mx-3" href="/users/sign_in">ログイン</button>-->
+          <!--<button class="btn btn-secondary" href="/users/sign_up">登録する</button>-->
+        </div>
+    </div>
+  </div>
+</header>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
     <%= yield %>
+<footer class="footer">
+    <p>© 2020 POTEPAN.INC.</p>
+</footer>
   </body>
 </html>
