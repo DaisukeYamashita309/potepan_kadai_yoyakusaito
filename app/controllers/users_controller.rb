@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users = User.new
+    @user = current_user
+    # binding.pry
   end
   
   def new
@@ -10,8 +11,9 @@ class UsersController < ApplicationController
   def create
       logger.debug("params")
       logger.debug(params.inspect)
-        @users = User.new(params.require(:user).permit(:name,:introduction,:photo))
-    if @users.save
+        @user = User.new(params.require(:user).permit(:name,:introduction,:img))
+      # binding.pry
+    if @user.save
       flash[:notice] = "ユーザーを新規登録しました"
       redirect_to :users_index
     else
@@ -27,6 +29,7 @@ class UsersController < ApplicationController
   end
  
   def update
+    binding.pry
       @users = User.find(params[:id])
     if @users.update(params.require(:user).permit(:name,:introduction,:email))
       flash[:notice] = "ユーザーIDが「#{@users.id}」の情報を更新しました"
@@ -44,6 +47,7 @@ class UsersController < ApplicationController
   end
       
   def account
-     @users = User.find(params[:id])
+    # @users = User.find(params[:id])
+    @user = current_user
   end
 end

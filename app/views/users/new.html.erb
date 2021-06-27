@@ -2,15 +2,29 @@
 <p>アイコン画像</p>
  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br>
  
- <%= link_to "アカウント", users_account_path %>
- <%= link_to "プロフィール", users_index_path %>
+ <%= link_to "アカウント", users_account_path(current_user), class: "menu" %>
+ <%= link_to "プロフィール", users_index_path, class: "menu" %>
+ 
+ <ul class="menu">
+    <li class="menu__single">
+     <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg", class:"init-bottom"%>
+        <ul class="menu__second-level">
+            <li><%= link_to "ルーム登録", users_index_path %></li>
+            <li><%= link_to "予約済みルーム一覧", users_index_path  %></i>
+            <li><%= link_to "登録済みルーム一覧", users_index_path  %></li>
+            <li><%= link_to "設定", users_index_path  %></li>
+            <li><%= link_to "ログアウト", users_index_path  %></li>
+        </ul>
+    </li>
+    <!-- 他グローバルナビメニュー省略 -->
+</ul>
  
  <table>
   <tbody>
-   <%= form_for @users, url: users_index_path do |f| %>
+   <%= form_for @user, url: users_index_path do |f| %>
    <tr>
        <th><%= f.label :photo ,"アイコン画像" %></th>
-      <%= file_field_tag 'attachment'%>
+       <td><%= file_field_tag 'attachment'%></td>
    </tr>
      <tr>
       <th><%= f.label :introduction ,"自己紹介" %></th>

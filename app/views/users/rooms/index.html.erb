@@ -1,0 +1,41 @@
+<h2>登録済みルーム一覧</h2>
+
+<% if flash.notice %>
+<p class="notice"><%= flash.notice %></p>
+<% end %>
+
+  <table>
+   <thead>
+    <tr>
+     <th>ルーム画像</th>
+     <th>ルーム名</th>
+     <th>ルーム紹介</th>
+     <th>料金</th>
+     <th>作成日</th>
+    </tr>
+   </thead>
+    
+   <tbody>
+    <% @rooms.each do |room| %>
+     <tr>
+      <td><%= room.id %></td>
+      <!--<td>%= post.title %></td>-->
+      <!--<td>%= post.begin_day&.strftime("%Y年 %m月 %d日") %></td>-->
+      <!--<td>%= post.finish_day&.strftime("%Y年 %m月 %d日") %></td>-->
+      <!--<td>% if post.all_day == '1' then %>○% else%>% end %>︎</td>-->
+      <!--<td>%= post.schejule_memo %></td>-->
+      <!--<td>-->
+      <!-- %= link_to "確認", post %>-->
+      <!--</td>-->
+      <!--<td>-->
+      <!-- %= link_to "編集", [:edit, post]%>-->
+      <!--</td>-->
+      <!--<td>-->
+      <!-- %= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" } %>-->
+      </td>
+
+     </tr>
+    <% end %>
+   </tbody>
+  </table>
+ 

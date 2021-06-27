@@ -1,0 +1,21 @@
+<h3>予約内容確認</h3>
+
+<td>%= @rooms.total_prices %></td>
+<td>%= @rooms.begin_day %></td>
+<td>%= @rooms.finish_day %></td>
+
+<p>使用日数 : </p>
+%= @rooms.finish_day-@rooms.begin_day + 1 %>
+
+<p>人数 : </p>
+<td>%= @rooms.people %></td>
+
+<p>合計金額</p>
+
+<p>上記内容でよろしければ「予約を確定」を押してください</p>
+
+<%= link_to "予約を確定", reservations_rooms_path %>
+
+<%= link_to "ルーム詳細に戻る", :back %>
+
+

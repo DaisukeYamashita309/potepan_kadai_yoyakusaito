@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room_img: 
+  room_name: MyString
+  room_intro: MyString
+  total_price: MyString
+  begin_day: 2021-06-19
+  finish_day: 2021-06-19
+  reserve_day: 2021-06-19 04:25:08
+  make_day: 2021-06-19
+  one_day_money: MyString
+  address: MyString
+
+two:
+  room_img: 
+  room_name: MyString
+  room_intro: MyString
+  total_price: MyString
+  begin_day: 2021-06-19
+  finish_day: 2021-06-19
+  reserve_day: 2021-06-19 04:25:08
+  make_day: 2021-06-19
+  one_day_money: MyString
+  address: MyString

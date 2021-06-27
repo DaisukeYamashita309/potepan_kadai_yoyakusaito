@@ -1,0 +1,32 @@
+<h3>ルーム情報登録</h3>
+
+<%= render "shared/error", obj: @room %>
+
+  <!--%= @rooms.total_prices %>-->
+ 
+ <%= form_for(@room, url: {controller: 'rooms', action: 'show' }) do |f| %>
+ <table>
+     <tr>
+         <th><%= f.label :begin_day ,"開始日" %></th>
+         <td><%= f.date_field :begin_day ,  class: 'form-control' %></td>
+     </tr>
+     
+     <tr>
+          <th><%= f.label :finish_day ,"終了日" %></th>
+          <td><%= f.date_field :finish_day,  class: 'form-control'%></td>
+     </tr>
+     
+     <tr>
+          <th><%= f.label :people,"人数" %></th>
+          <td><%= f.text_field:people ,class: 'form-control'%></td>
+     </tr>
+
+ </table>
+     
+     <div>
+         <ul>
+             <li><%= f.submit "予約する"%></li>
+         </ul>
+     </div>
+ <% end %>
+ 

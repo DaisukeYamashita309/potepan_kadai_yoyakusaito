@@ -2,15 +2,34 @@
 <p>アイコン画像</p>
  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br>
  
- <%= link_to "アカウント", users_account_path, class: "menu" %>
+ <%= link_to "アカウント", users_account_path(current_user), class: "menu" %>
  <%= link_to "プロフィール", users_index_path, class: "menu" %>
  
+
  <table>
   <tbody>
-   <%= form_for @users, url: users_index_path do |f| %>
+   <%= form_for @user, url: users_index_path do |f| %>
    <tr>
-       <th><%= f.label :photo ,"アイコン画像" %></th>
-      <%= file_field_tag 'attachment'%>
+    <ul class="menu">
+    <li class="menu__single">
+    <%= f.label :img do %>
+    <%= image_tag('https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg', class: 'init-bottom') %>
+     <ul class="menu__second-level">
+      <li><%= link_to "ルーム登録", new_room_path %></li>
+      <li><%= link_to "予約済みルーム一覧", reservations_rooms_path  %></li>
+      <!--% binding.pry %>-->
+      <li><%= link_to "登録済みルーム一覧", user_rooms_path(current_user)  %></li>
+      <li><%= link_to "設定", users_account_path  %></li>
+      <li><%= link_to "ログアウト", reservations_index_path  %></li>
+    <%= f.file_field :img, class: 'uploader', style: 'display:none' %>
+    <!--% binding.pry%>-->
+    <% end %>
+    </ul>
+    </li>
+    <!-- 他グローバルナビメニュー省略 -->
+</ul>
+       <!--<th>%= f.label :photo ,"アイコン画像" %></th>-->
+       <!--<td>%= f.file_field :photo, class: 'account-page__inner--icon__input__btn', id: 'upload-icon'%></td>-->
    </tr>
      <tr>
       <th><%= f.label :introduction ,"自己紹介" %></th>
@@ -19,6 +38,7 @@
 <tr>
     <th><%= f.label :name ,"名前" %></th>
     <td><%= f.text_field :name%></td>
+    <!--%= @user.id %>-->
 </tr>
    </tbody>
   </table>
