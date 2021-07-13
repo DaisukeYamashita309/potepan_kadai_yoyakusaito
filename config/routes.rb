@@ -1,36 +1,31 @@
 Rails.application.routes.draw do
   get 'users/index'
-  patch 'users/index/;id' => 'users#update'
-  post 'users/index/:id' => 'users#create'
+  patch 'users/index' => 'users#update'
+  post 'users/index' => 'users#create'
   
   post 'rooms/new' => 'rooms#create'
-  get 'rooms/new'
   
   post 'rooms/index' => 'rooms#create'
-  get 'rooms/index'
+  # get 'rooms/index'
   get 'rooms/posts'
   
-  # patch 'rooms/index' => 'rooms#create'
-  # post 'rooms/index' => 'rooms#create'
-  
-  # get 'users/profile'
   get 'users/account'
-#   devise_for :users
   get 'reservations/index'
+  get 'reservations/catalog'
   get 'users/profile'
   post 'users/profile'
   get 'users/show'
   get 'users/account'
   get 'rooms/reservations'
+  post 'reservations/:id' => 'reservations#show'
+  get 'rooms/search' 
   
   resources :reservations
   # resources :users
   resources :posts
   resources :rooms
-    # get 'users/sign_in', to: 'users/registrations#new'
-    # get 'users/sign_up', to: 'users/registrations#new'
   
- devise_for :users, :controllers => {
+  devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
   } 
@@ -45,13 +40,10 @@ Rails.application.routes.draw do
       get 'posts'
       get 'reservations'
     end
-    # member do
-    #   get 'posts'
-    #   # get 'reservations'
-    # end
   end
+  
   resources :users do
     resources :rooms ,module:'users'
-      # get 'rooms'
   end
+  
 end

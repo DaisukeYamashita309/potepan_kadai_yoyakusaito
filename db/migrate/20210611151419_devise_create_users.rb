@@ -18,6 +18,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :passwords_confirmations
       t.binary :img
       t.string :introduction
+      # add_column :users, :image_id, :string
       
 
       # mount_uploader :image, ImageUploader

@@ -1,20 +1,34 @@
 <h3>予約内容確認</h3>
 
-<td>%= @rooms.total_prices %></td>
-<td>%= @rooms.begin_day %></td>
-<td>%= @rooms.finish_day %></td>
+<% prices = @room.total_prices %>
+<%= prices %>/ 日
 
-<p>使用日数 : </p>
-%= @rooms.finish_day-@rooms.begin_day + 1 %>
+<div>開始日</div>
+<td><%= @reservation.begin_day %></td>
 
-<p>人数 : </p>
-<td>%= @rooms.people %></td>
+<div>終了日</div>
+<td><%= @reservation.finish_day %></td>
+
+<% sum = (@reservation.finish_day - @reservation.begin_day + 1).to_i %>
+<p>使用日数 :<%= sum %></p>
+
+<p>人数 :<%= @reservation.people %> </p>
 
 <p>合計金額</p>
+<% sum_price = (sum * prices) %>
+<p><%= sum_price %></p>
 
 <p>上記内容でよろしければ「予約を確定」を押してください</p>
 
-<%= link_to "予約を確定", reservations_rooms_path %>
+
+<%= form_for @reservation do |form| %>
+	<%= form.hidden_field :begin_day %>
+	<%= form.hidden_field :finish_day %>
+	<%= form.hidden_field :people %>
+	<%= form.hidden_field :room_id %>
+	<%= form.hidden_field :user_id %>
+	<%= form.submit '予約を確定' %>
+<% end %>
 
 <%= link_to "ルーム詳細に戻る", :back %>
 

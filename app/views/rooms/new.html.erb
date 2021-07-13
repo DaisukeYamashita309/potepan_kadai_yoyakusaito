@@ -2,7 +2,8 @@
 
 <%= render "shared/error", obj: @room %>
  
- <%= form_for @room do |f| %>
+<%= form_for @room do |f| %>
+     <%= f.hidden_field :total_prices %>
  <table>
      <tr>
          <th><%= f.label :room_name ,"ルーム名" %></th>
@@ -23,6 +24,15 @@
           <th><%= f.label :address ,"住所" %></th>
           <td><%= f.text_field :address ,:placeholder => "住所を入力"%></td>
      </tr>
+     
+     <tr>
+          <th><%= f.label :image , "画像" %></th>
+        　<td><%= f.attachment_field :image %></td>
+        　<% if @room.image != nil %>
+        　<%= image_tag attachment_url(@room, :image, :fill, 300, 300) %>
+          <% end %>
+     </tr>
+     
      
  </table>
      

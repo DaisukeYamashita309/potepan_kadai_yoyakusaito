@@ -1,17 +1,40 @@
-<h2>アカウント</h2>
-<tbody>
-   <tr>
-       <th></th>
-       <td><%= @user.email %></td>
-   </tr>
-     <tr>
-      <th></th>
-      <!--%binding.pry%>-->
-       <td><%= @user.password %></td>
-     </tr>
-<tr>
-    <th></th>
-    <td></td>
-</tr>
-   </tbody>
-  </table>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2 user-nav user-nav-pc d-lg-block ">
+          <div class="">
+            <ul>
+              <li class="active">
+                <%= link_to "アカウント", users_account_path(current_user), class: "menu" %>
+              </li>
+              <li class="">
+                <%= link_to "プロフィール", users_index_path, class: "menu" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="col-md-10 user-view">
+          <div class="">
+            <div class="">
+              <h2>アカウント</h2>
+            </div>
+          </div>
+          <div class="">
+            <div class="row">
+              <label class="col-md-3" for="email">メールアドレス</label>     
+              <div class="col-md-9"><%= @user.email %></div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+            <label class="col-md-3" for="password">パスワード</label>
+            <div class="col-md-9">*********</div>
+          </div>
+        </div>
+        <div class="update-content">
+          <div class="row">
+            <a class="col-md-2 btn btn-primary mx-3" href="/users/edit">編集</a>
+          </div>
+        </div>
+    </div>
+</div>

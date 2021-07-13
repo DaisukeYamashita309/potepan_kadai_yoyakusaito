@@ -1,3 +1,26 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.user-icon2 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.user-icon{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.d-lg-block {
+    display: block!important;
+}
+
+.user .user-nav {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 15px;
+}
+
+.user .user-nav li {
+    font-size: 18px;
+    padding: 10px;
+}

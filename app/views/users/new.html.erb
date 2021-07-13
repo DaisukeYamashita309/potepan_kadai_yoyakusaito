@@ -9,14 +9,13 @@
     <li class="menu__single">
      <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg", class:"init-bottom"%>
         <ul class="menu__second-level">
-            <li><%= link_to "ルーム登録", users_index_path %></li>
-            <li><%= link_to "予約済みルーム一覧", users_index_path  %></i>
-            <li><%= link_to "登録済みルーム一覧", users_index_path  %></li>
-            <li><%= link_to "設定", users_index_path  %></li>
-            <li><%= link_to "ログアウト", users_index_path  %></li>
+            <li><%= link_to "ルーム登録", new_room_path %></li>
+            <li><%= link_to "予約済みルーム一覧", reservations_catalog_path %></li>
+            <li><%= link_to "登録済みルーム一覧", posts_rooms_path %></li>
+            <li><%= link_to "設定", users_account_path %></li>
+            <li><%= link_to "ログアウト", sign_out_path %></li>
         </ul>
     </li>
-    <!-- 他グローバルナビメニュー省略 -->
 </ul>
  
  <table>

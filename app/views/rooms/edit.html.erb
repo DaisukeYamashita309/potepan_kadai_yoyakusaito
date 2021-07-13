@@ -4,7 +4,7 @@
 
   <!--%= @rooms.total_prices %>-->
  
- <%= form_for(@room, url: {controller: 'rooms', action: 'show' }) do |f| %>
+ <%= form_for(@room, url: {controller: 'rooms', action: 'update' }) do |f| %>
  <table>
      <tr>
          <th><%= f.label :begin_day ,"開始日" %></th>
@@ -18,7 +18,7 @@
      
      <tr>
           <th><%= f.label :people,"人数" %></th>
-          <td><%= f.text_field:people ,class: 'form-control'%></td>
+          <td><%= f.number_field:people ,class: 'form-control'%></td>
      </tr>
 
  </table>

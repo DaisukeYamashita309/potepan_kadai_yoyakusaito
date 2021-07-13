@@ -16,26 +16,18 @@
    </thead>
     
    <tbody>
-    <% @rooms.each do |room| %>
      <tr>
-      <td><%= room.id %></td>
-      <!--<td>%= post.title %></td>-->
-      <!--<td>%= post.begin_day&.strftime("%Y年 %m月 %d日") %></td>-->
-      <!--<td>%= post.finish_day&.strftime("%Y年 %m月 %d日") %></td>-->
-      <!--<td>% if post.all_day == '1' then %>○% else%>% end %>︎</td>-->
-      <!--<td>%= post.schejule_memo %></td>-->
-      <!--<td>-->
-      <!-- %= link_to "確認", post %>-->
-      <!--</td>-->
-      <!--<td>-->
-      <!-- %= link_to "編集", [:edit, post]%>-->
-      <!--</td>-->
-      <!--<td>-->
-      <!-- %= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" } %>-->
-      </td>
-
+      <td><%= @room.image %></td>
+      <td><%= @room.room_name %></td>
+      <td><%= @room.room_intro %></td>
+      <td><%= @room.total_prices %></td>
+      <td><%= @room.created_at %></td>
+      
+      <%= form_for @reservation do |form| %>
+	<%= form.hidden_field :image %>
+<% end %>
+     
      </tr>
-    <% end %>
    </tbody>
   </table>
  

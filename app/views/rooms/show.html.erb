@@ -1,11 +1,11 @@
-<h3>ルーム情報登録</h3>
-
 <%= render "shared/error", obj: @room %>
 
-  <!--%= @rooms.total_prices %>-->
  
- <%= form_for(@room, url: {controller: 'rooms', action: 'update' }) do |f| %>
+ <%= form_for(@room, url: {controller: 'reservations', action: 'new' }, method: :get) do |f| %>
+ <%= image_tag attachment_url(@room, :image, :fill, 630, 420)%>
  <table>
+         <h5 class="price-icon"><%= @room.total_prices %>/ 日</h5>
+         
      <tr>
          <th><%= f.label :begin_day ,"開始日" %></th>
          <td><%= f.date_field :begin_day ,  class: 'form-control' %></td>
@@ -18,9 +18,12 @@
      
      <tr>
           <th><%= f.label :people,"人数" %></th>
-          <td><%= f.number_field:people ,class: 'form-control'%></td>
+          <td><%= f.number_field :people ,class: 'form-control'%></td>
      </tr>
-
+     
+     <%= f.hidden_field :room_id, value: @room.id %>
+     <%= f.hidden_field :user_id, value: @user.id %>
+     
  </table>
      
      <div>
@@ -30,3 +33,12 @@
      </div>
  <% end %>
  
+     <% if @user.image != nil %>
+     <%= image_tag attachment_url(@user, :image, :fill, 60, 60),class: "user-icon" %>
+     <% else %>
+     <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg",class: "user-icon2" %>
+     <% end %>
+     
+     <%= @room.room_name%>
+     <%= @room.address%><br><br><br><br>
+     <%= @room.room_intro%>
